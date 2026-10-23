@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dot Hash Network | Nationwide USA Land & Real Estate</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617'
+                        },
+                        emerald: {
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Chart.js for Dashboard Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-navy-950 text-gray-300 text-xs py-2 px-4 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center"><i data-lucide="mail" class="w-3.5 h-3.5 mr-1.5 text-emerald-500"></i> dothashnetwork1@gmail.com</span>
+                <span class="hidden md:flex items-center"><i data-lucide="map-pin" class="w-3.5 h-3.5 mr-1.5 text-emerald-500"></i> Riverdale Rd, College Park, GA 30360, Atlanta Georgia, USA</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-emerald-400 font-semibold">● Nationwide USA Network</span>
+                <button onclick="toggleDashboard()" class="text-xs bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-2.5 py-1 rounded transition">
+                    <i data-lucide="layout-dashboard" class="w-3 h-3 inline mr-1"></i> Switch View (Site/Dashboard)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN WEBSITE CONTAINER -->
+    <div id="website-view">
+        
+        <!-- HEADER / NAVIGATION -->
+        <header class="bg-navy-900 text-white sticky top-0 z-40 shadow-xl border-b border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+                <!-- LOGO -->
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center font-black text-white text-xl shadow-lg shadow-emerald-600/30 group-hover:bg-emerald-500 transition">
+                        #
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-extrabold tracking-tight text-white leading-tight">Dot Hash <span class="text-emerald-500">Network</span></span>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-widest font-semibold">Land & Real Estate</span>
+                    </div>
+                </a>
+
+                <!-- DESKTOP NAV -->
+                <nav class="hidden md:flex space-x-8 font-medium text-sm text-gray-300">
+                    <a href="#home" class="hover:text-emerald-400 transition">Home</a>
+                    <a href="#properties" class="hover:text-emerald-400 transition">Browse Properties</a>
+                    <a href="#calculator" class="hover:text-emerald-400 transition">Financing Estimator</a>
+                    <a href="#sell" class="hover:text-emerald-400 transition">Sell Your Land</a>
+                    <a href="#contact" class="hover:text-emerald-400 transition">Contact</a>
+                </nav>
+
+                <!-- HEADER ACTION BUTTONS -->
+                <div class="hidden lg:flex items-center space-x-3">
+                    <a href="#sell" class="bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold px-4 py-2.5 rounded-lg shadow-md transition flex items-center">
+                        <i data-lucide="plus-circle" class="w-4 h-4 mr-2"></i> List Property
+                    </a>
+                </div>
+
+                <!-- MOBILE MENU BUTTON -->
+                <button onclick="toggleMobileMenu()" class="md:hidden text-gray-300 hover:text-white p-2">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <!-- MOBILE NAVIGATION DRAWER -->
+            <div id="mobile-menu" class="hidden md:hidden bg-navy-950 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3 text-sm">
+                <a href="#home" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-emerald-400 py-2">Home</a>
+                <a href="#properties" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-emerald-400 py-2">Browse Properties</a>
+                <a href="#calculator" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-emerald-400 py-2">Financing Estimator</a>
+                <a href="#sell" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-emerald-400 py-2">Sell Your Land</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="block text-gray-300 hover:text-emerald-400 py-2">Contact Us</a>
+                <button onclick="toggleDashboard(); toggleMobileMenu();" class="w-full bg-emerald-600 text-white font-medium py-2.5 rounded-lg">Open Portal Dashboard</button>
+            </div>
+        </header>
+
+        <!-- HERO SECTION -->
+        <section id="home" class="relative bg-navy-950 text-white py-24 px-4 overflow-hidden border-b border-slate-800">
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            
+            <div class="max-w-7xl mx-auto relative z-10 text-center">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-950/80 text-emerald-400 border border-emerald-500/30 mb-6">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5 mr-1.5"></i> Nationwide Verified Real Estate Platform
+                </span>
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight max-w-4xl mx-auto leading-tight mb-6">
+                    Connecting You to Prime American <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">Land & Real Estate</span>
+                </h1>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-10">
+                    Discover verified acreage, commercial lots, and residential homes across all 50 states with clear title guarantees and seller financing options.
+                </p>
+
+                <!-- ADVANCED SEARCH CONSOLE -->
+                <div class="bg-white/10 backdrop-blur-md p-4 sm:p-6 rounded-2xl shadow-2xl border border-white/10 max-w-4xl mx-auto text-left">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Type</label>
+                            <select id="filterType" onchange="applyFilters()" class="w-full bg-navy-900 border border-slate-700 text-white rounded-lg p-3 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                                <option value="All">All Categories</option>
+                                <option value="Land">Land & Acreage</option>
+                                <option value="Residential">Residential</option>
+                                <option value="Commercial">Commercial</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">State / Search</label>
+                            <input type="text" id="filterKeyword" onkeyup="applyFilters()" placeholder="e.g. Georgia, Texas, FL" class="w-full bg-navy-900 border border-slate-700 text-white rounded-lg p-3 text-sm focus:ring-2 focus:ring-emerald-500 outline-none placeholder-gray-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Max Budget</label>
+                            <select id="filterPrice" onchange="applyFilters()" class="w-full bg-navy-900 border border-slate-700 text-white rounded-lg p-3 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                                <option value="All">Any Price</option>
+                                <option value="100000">Under $100,000</option>
+                                <option value="300000">Under $300,000</option>
+                                <option value="600000">Under $600,000</option>
+                                <option value="1000000">Under $1,000,000</option>
+                            </select>
+                        </div>
+                        <div class="flex items-end">
+                            <button onclick="applyFilters()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-lg transition shadow-lg flex items-center justify-center space-x-2">
+                                <i data-lucide="search" class="w-4 h-4"></i>
+                                <span>Search</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KEY METRICS BANNER -->
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto pt-8 border-t border-slate-800">
+                    <div>
+                        <div class="text-3xl font-extrabold text-white">$45M+</div>
+                        <div class="text-xs text-gray-400 mt-1">Land Sold Nationwide</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-extrabold text-emerald-400">100%</div>
+                        <div class="text-xs text-gray-400 mt-1">Clear Title Guarantee</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-extrabold text-white">50 States</div>
+                        <div class="text-xs text-gray-400 mt-1">Coverage Across USA</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-extrabold text-emerald-400">24/7</div>
+                        <div class="text-xs text-gray-400 mt-1">Client Consultation</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED PROPERTIES SECTION -->
+        <section id="properties" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div>
+                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">Inventory</span>
+                    <h2 class="text-3xl font-bold text-navy-900 mt-1">Featured Real Estate & Acreage</h2>
+                </div>
+                <div class="text-sm text-gray-500 font-medium">
+                    Showing <span id="propertyCount" class="font-bold text-emerald-600">0</span> active properties
+                </div>
+            </div>
+
+            <!-- PROPERTY GRID -->
+            <div id="propertyGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Injected via JavaScript -->
+            </div>
+        </section>
+
+        <!-- FINANCING ESTIMATOR CALCULATOR -->
+        <section id="calculator" class="bg-navy-900 text-white py-20 border-y border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Financial Tools</span>
+                        <h2 class="text-3xl font-bold mt-2 mb-4">Land & Home Financing Estimator</h2>
+                        <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+                            Planning your land purchase? Use our interactive payment calculator to estimate monthly principal and interest payments for traditional loans or owner-financed properties.
+                        </p>
+                        <div class="space-y-4 text-sm text-gray-300">
+                            <div class="flex items-center space-x-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400"></i>
+                                <span>Flexible Down Payment Terms Available</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400"></i>
+                                <span>No Early Prepayment Penalty Fees</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400"></i>
+                                <span>Direct Owner Financing Packages</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-navy-950 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-2xl">
+                        <h3 class="text-xl font-bold mb-6 text-white border-b border-slate-800 pb-3">Loan Estimator Widget</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-xs font-semibold mb-1">
+                                    <span class="text-gray-400">Property Price</span>
+                                    <span id="calcPriceVal" class="text-emerald-400 font-bold">$150,000</span>
+                                </div>
+                                <input type="range" id="calcPrice" min="10000" max="1000000" step="5000" value="150000" oninput="updateCalculator()" class="w-full accent-emerald-500 bg-slate-800 rounded">
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs font-semibold mb-1">
+                                    <span class="text-gray-400">Down Payment (%)</span>
+                                    <span id="calcDownVal" class="text-emerald-400 font-bold">20%</span>
+                                </div>
+                                <input type="range" id="calcDown" min="5" max="50" step="5" value="20" oninput="updateCalculator()" class="w-full accent-emerald-500 bg-slate-800 rounded">
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs text-gray-400 mb-1">Interest Rate (%)</label>
+                                    <input type="number" id="calcRate" value="6.5" step="0.1" onchange="updateCalculator()" class="w-full bg-navy-900 border border-slate-700 text-white p-2.5 rounded text-sm focus:outline-none focus:border-emerald-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-400 mb-1">Loan Term (Years)</label>
+                                    <select id="calcYears" onchange="updateCalculator()" class="w-full bg-navy-900 border border-slate-700 text-white p-2.5 rounded text-sm focus:outline-none focus:border-emerald-500">
+                                        <option value="10">10 Years</option>
+                                        <option value="15" selected>15 Years</option>
+                                        <option value="30">30 Years</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 p-4 bg-navy-900 border border-emerald-500/20 rounded-xl text-center">
+                                <span class="text-xs text-gray-400 uppercase font-semibold">Estimated Monthly Payment</span>
+                                <div id="calcMonthly" class="text-3xl font-extrabold text-emerald-400 mt-1">$1,045 / mo</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SELL YOUR PROPERTY INTAKE FORM -->
+        <section id="sell" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="bg-gradient-to-r from-navy-900 to-navy-950 text-white rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Fast Acquisitions</span>
+                        <h2 class="text-3xl font-bold mt-2 mb-4">Want to Sell Your Land or Property Fast?</h2>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Dot Hash Network buys land and real estate directly across the United States. Submit your property information today for a competitive cash offer within 48 business hours with zero closing costs for you.
+                        </p>
+                        <div class="bg-navy-900/60 p-4 rounded-xl border border-slate-800 space-y-3 text-sm">
+                            <div class="flex items-center text-gray-300">
+                                <i data-lucide="check" class="w-4 h-4 text-emerald-400 mr-2"></i> No Realtor Commissions or Hidden Fees
+                            </div>
+                            <div class="flex items-center text-gray-300">
+                                <i data-lucide="check" class="w-4 h-4 text-emerald-400 mr-2"></i> We Buy Land In "As-Is" Condition
+                            </div>
+                            <div class="flex items-center text-gray-300">
+                                <i data-lucide="check" class="w-4 h-4 text-emerald-400 mr-2"></i> Quick 14-Day Title Escrow Closings
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FORM -->
+                    <form onsubmit="handleFormSubmit(event, 'Property Sale Lead')" class="bg-white text-gray-900 p-6 sm:p-8 rounded-2xl shadow-lg space-y-4">
+                        <h3 class="text-xl font-bold text-navy-900 mb-2">Request Cash Offer</h3>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 uppercase mb-1">Full Name</label>
+                            <input type="text" required placeholder="John Doe" class="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 uppercase mb-1">Email</label>
+                                <input type="email" required placeholder="dothashnetwork1@gmail.com" class="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 uppercase mb-1">Phone</label>
+                                <input type="tel" required placeholder="(404) 555-0199" class="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 uppercase mb-1">Property Location (County, State, Address)</label>
+                            <input type="text" required placeholder="e.g. Riverdale Rd, College Park, GA 30360" class="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                        </div>
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-lg transition shadow-md">
+                            Submit Property Details
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-gray-200">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200">
+                    <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-navy-900 mb-1">Email Support</h4>
+                    <p class="text-sm text-gray-600 mb-3">Reach out directly for acquisition or buyer support.</p>
+                    <a href="mailto:dothashnetwork1@gmail.com" class="text-sm font-semibold text-emerald-600 hover:underline">dothashnetwork1@gmail.com</a>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200">
+                    <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-navy-900 mb-1">Office Address</h4>
+                    <p class="text-sm text-gray-600 mb-2">USA Corporate Headquarters:</p>
+                    <p class="text-xs font-semibold text-gray-800 leading-relaxed">
+                        Riverdale Rd, College Park, GA 30360<br>
+                        Atlanta Georgia, USA
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-200">
+                    <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="clock" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-navy-900 mb-1">Business Hours</h4>
+                    <p class="text-sm text-gray-600 mb-2">Mon - Fri: 8:00 AM - 6:00 PM EST</p>
+                    <p class="text-sm text-gray-600">Sat - Sun: Closed (Email On-Call)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="bg-navy-950 text-white border-t border-slate-800 py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-sm">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center font-bold text-white">#</div>
+                        <span class="font-bold text-lg">Dot Hash Network</span>
+                    </div>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        USA nationwide land and real estate platform focused on acreage acquisitions, development, and buyer sales.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-emerald-400 mb-3 uppercase text-xs">Official Contact</h5>
+                    <p class="text-gray-400 text-xs mb-1">Email: dothashnetwork1@gmail.com</p>
+                    <p class="text-gray-400 text-xs leading-relaxed">Address: Riverdale Rd, College Park, GA 30360, Atlanta Georgia, USA</p>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-emerald-400 mb-3 uppercase text-xs">Navigation</h5>
+                    <ul class="space-y-1.5 text-xs text-gray-400">
+                        <li><a href="#home" class="hover:text-white">Home</a></li>
+                        <li><a href="#properties" class="hover:text-white">Properties Inventory</a></li>
+                        <li><a href="#sell" class="hover:text-white">Sell Your Property</a></li>
+                        <li><a href="#calculator" class="hover:text-white">Loan Estimator</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-emerald-400 mb-3 uppercase text-xs">System Portal</h5>
+                    <button onclick="toggleDashboard()" class="bg-navy-900 border border-slate-700 text-xs text-emerald-400 px-3 py-2 rounded font-medium hover:bg-slate-800 transition">
+                        Open Management Dashboard →
+                    </button>
+                </div>
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-slate-900 text-center text-xs text-gray-500">
+                &copy; 2026 Dot Hash Network LLC. All Rights Reserved. Riverdale Rd, College Park, GA 30360, Atlanta Georgia, USA.
+            </div>
+        </footer>
+
+    </div>
+
+
+    <!-- ADMIN / CLIENT DASHBOARD VIEW (HIDDEN BY DEFAULT) -->
+    <div id="dashboard-view" class="hidden min-h-screen bg-gray-100 flex flex-col">
+        <!-- DASHBOARD NAV -->
+        <header class="bg-navy-900 text-white py-4 px-6 flex justify-between items-center border-b border-slate-800">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-emerald-600 rounded flex items-center justify-center font-bold text-white">#</div>
+                <span class="font-bold text-lg">Dot Hash Network <span class="text-emerald-400 text-xs ml-2 uppercase font-mono px-2 py-0.5 bg-emerald-950 rounded border border-emerald-500/30">Control Center</span></span>
+            </div>
+            <button onclick="toggleDashboard()" class="text-xs bg-slate-800 hover:bg-slate-700 text-gray-200 px-3 py-2 rounded transition flex items-center">
+                <i data-lucide="globe" class="w-3.5 h-3.5 mr-1.5"></i> Back to Live Website
+            </button>
+        </header>
+
+        <div class="flex-1 max-w-7xl w-full mx-auto p-6 space-y-6">
+            <!-- DASHBOARD STATS -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-200">
+                    <span class="text-xs text-gray-500 uppercase font-bold">Total Properties</span>
+                    <div class="text-2xl font-black text-navy-900 mt-1" id="dashTotalProperties">6</div>
+                    <span class="text-xs text-emerald-600 font-semibold">Active Listings</span>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-200">
+                    <span class="text-xs text-gray-500 uppercase font-bold">Portfolio Value</span>
+                    <div class="text-2xl font-black text-navy-900 mt-1">$2,878,000</div>
+                    <span class="text-xs text-gray-500 font-semibold">Listed Inventory</span>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-200">
+                    <span class="text-xs text-gray-500 uppercase font-bold">Inquiries Received</span>
+                    <div class="text-2xl font-black text-emerald-600 mt-1" id="dashTotalLeads">14</div>
+                    <span class="text-xs text-gray-500 font-semibold">New Buyer Leads</span>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-200">
+                    <span class="text-xs text-gray-500 uppercase font-bold">HQ Office</span>
+                    <div class="text-xs font-bold text-navy-900 mt-2 truncate">College Park, GA</div>
+                    <span class="text-xs text-gray-500">Atlanta Georgia, USA</span>
+                </div>
+            </div>
+
+            <!-- DASHBOARD CONTENT GRID -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <!-- MANAGEMENT SECTION -->
+                <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-gray-200 space-y-6">
+                    <div class="flex justify-between items-center border-b border-gray-100 pb-4">
+                        <h3 class="font-bold text-navy-900">Manage Property Inventory</h3>
+                        <button onclick="openAddModal()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded flex items-center">
+                            <i data-lucide="plus" class="w-3.5 h-3.5 mr-1"></i> Add Listing
+                        </button>
+                    </div>
+
+                    <!-- TABLE OF PROPERTIES -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs text-gray-600">
+                            <thead class="bg-gray-50 text-gray-700 uppercase">
+                                <tr>
+                                    <th class="p-3">Title</th>
+                                    <th class="p-3">Type</th>
+                                    <th class="p-3">Location</th>
+                                    <th class="p-3">Price</th>
+                                    <th class="p-3 text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dashTableBody" class="divide-y divide-gray-100">
+                                <!-- JS Injected -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ANALYTICS CHART & INFO -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 space-y-4">
+                    <h3 class="font-bold text-navy-900 border-b border-gray-100 pb-3">Platform Analytics</h3>
+                    <div class="h-48 relative">
+                        <canvas id="analyticsChart"></canvas>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg text-xs space-y-2 text-gray-600">
+                        <div class="flex justify-between font-medium"><span>Official Contact:</span> <span class="text-navy-900">dothashnetwork1@gmail.com</span></div>
+                        <div class="flex justify-between font-medium"><span>Primary Region:</span> <span class="text-navy-900">Atlanta, GA USA</span></div>
+                        <div class="flex justify-between font-medium"><span>Database Status:</span> <span class="text-emerald-600 font-bold">Online</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- INQUIRY / DETAIL MODAL -->
+    <div id="propertyModal" class="fixed inset-0 bg-navy-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white max-w-2xl w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-200 relative max-h-[90vh] flex flex-col">
+            <button onclick="closeModal()" class="absolute top-4 right-4 bg-navy-900/80 text-white p-2 rounded-full hover:bg-navy-900 transition z-10">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div id="modalContent" class="p-6 overflow-y-auto">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // INITIALIZE LUCIDE ICONS
+        lucide.createIcons();
+
+        // MOCK DATABASE DATA
+        let properties = [
+            { id: 1, title: "10 Acres Atlanta Suburb Plot", type: "Land", location: "College Park, GA", price: 149000, size: "10 Acres", image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80", desc: "Prime wooded land located near Riverdale Rd, College Park, GA 30360. Ideal for residential development." },
+            { id: 2, title: "Modern Suburban Home", type: "Residential", location: "Austin, Texas", price: 425000, size: "2,400 Sq Ft", image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80", desc: "Beautiful 4-bedroom single family home with state-of-the-art finishes and spacious yard." },
+            { id: 3, title: "Commercial Highway Lot", type: "Commercial", location: "Orlando, Florida", price: 850000, size: "2.5 Acres", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80", desc: "High-traffic commercial land with direct access to major state highway corridors." },
+            { id: 4, title: "Wooded Acreage Retreat", type: "Land", location: "Asheville, NC", price: 89000, size: "5.2 Acres", image: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80", desc: "Quiet mountain land parcel with clear title and owner financing terms available." },
+            { id: 5, title: "Waterfront Residence", type: "Residential", location: "Lake Tahoe, NV", price: 1250000, size: "4,100 Sq Ft", image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80", desc: "Luxury lakefront property with private dock and panoramic mountain vistas." },
+            { id: 6, title: "Desert Agricultural Land", type: "Land", location: "Phoenix, Arizona", price: 115000, size: "15 Acres", image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=600&q=80", desc: "Expansive agricultural parcel zoned for multi-use rural development." }
+        ];
+
+        let leadCount = 14;
+
+        // RENDER PROPERTIES IN WEBSITE GRID
+        function renderPropertyListings(data) {
+            const grid = document.getElementById('propertyGrid');
+            document.getElementById('propertyCount').innerText = data.length;
+
+            if (data.length === 0) {
+                grid.innerHTML = `<div class="col-span-3 text-center py-12 text-gray-500">No properties found matching your search filters.</div>`;
+                return;
+            }
+
+            grid.innerHTML = data.map(p => `
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition border border-gray-200 flex flex-col">
+                    <div class="relative h-48">
+                        <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">${p.type}</span>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs font-semibold text-emerald-600 mb-1 flex items-center">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5 mr-1"></i>${p.location}
+                            </div>
+                            <h3 class="text-lg font-bold text-navy-900 mb-2">${p.title}</h3>
+                            <p class="text-xs text-gray-500 line-clamp-2 mb-4">${p.desc}</p>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center border-t border-gray-100 pt-3">
+                                <span class="text-xl font-extrabold text-navy-900">$${p.price.toLocaleString()}</span>
+                                <span class="text-xs text-gray-500 font-medium">${p.size}</span>
+                            </div>
+                            <button onclick="openDetailModal(${p.id})" class="w-full mt-4 bg-navy-900 hover:bg-emerald-600 text-white text-xs font-bold py-2.5 rounded-lg transition">
+                                View Details & Contact
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            lucide.createIcons();
+        }
+
+        // FILTER LOGIC
+        function applyFilters() {
+            const type = document.getElementById('filterType').value;
+            const keyword = document.getElementById('filterKeyword').value.toLowerCase();
+            const maxPrice = document.getElementById('filterPrice').value;
+
+            const filtered = properties.filter(p => {
+                const matchType = (type === 'All' || p.type === type);
+                const matchKeyword = (p.title.toLowerCase().includes(keyword) || p.location.toLowerCase().includes(keyword));
+                const matchPrice = (maxPrice === 'All' || p.price <= parseInt(maxPrice));
+                return matchType && matchKeyword && matchPrice;
+            });
+
+            renderPropertyListings(filtered);
+        }
+
+        // MODAL FUNCTIONS
+        function openDetailModal(id) {
+            const p = properties.find(item => item.id === id);
+            if (!p) return;
+
+            const modalContent = document.getElementById('modalContent');
+            modalContent.innerHTML = `
+                <img src="${p.image}" class="w-full h-56 object-cover rounded-xl mb-4">
+                <span class="text-xs bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded font-bold uppercase">${p.type}</span>
+                <h3 class="text-2xl font-bold text-navy-900 mt-2">${p.title}</h3>
+                <p class="text-sm font-semibold text-emerald-600 mb-2">${p.location} • ${p.size}</p>
+                <div class="text-2xl font-black text-navy-900 mb-4">$${p.price.toLocaleString()}</div>
+                <p class="text-xs text-gray-600 leading-relaxed mb-6">${p.desc}</p>
+                
+                <form onsubmit="handleFormSubmit(event, 'Inquiry on ${p.title}')" class="bg-gray-50 p-4 rounded-xl border border-gray-200 space-y-3">
+                    <h4 class="text-xs font-bold text-navy-900 uppercase">Inquire About This Listing</h4>
+                    <input type="text" required placeholder="Your Name" class="w-full p-2.5 bg-white border border-gray-300 rounded text-xs">
+                    <input type="email" required placeholder="dothashnetwork1@gmail.com" class="w-full p-2.5 bg-white border border-gray-300 rounded text-xs">
+                    <textarea placeholder="Message..." rows="2" class="w-full p-2.5 bg-white border border-gray-300 rounded text-xs"></textarea>
+                    <button type="submit" class="w-full bg-emerald-600 text-white font-bold text-xs py-2.5 rounded hover:bg-emerald-700">Send Direct Inquiry</button>
+                </form>
+            `;
+
+            document.getElementById('propertyModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('propertyModal').classList.add('hidden');
+        }
+
+        // CALCULATOR UPDATER
+        function updateCalculator() {
+            const price = parseInt(document.getElementById('calcPrice').value);
+            const downPercent = parseInt(document.getElementById('calcDown').value);
+            const rate = parseFloat(document.getElementById('calcRate').value) / 100 / 12;
+            const years = parseInt(document.getElementById('calcYears').value) * 12;
+
+            document.getElementById('calcPriceVal').innerText = `$${price.toLocaleString()}`;
+            document.getElementById('calcDownVal').innerText = `${downPercent}%`;
+
+            const principal = price * (1 - (downPercent / 100));
+            const monthly = (principal * rate * Math.pow(1 + rate, years)) / (Math.pow(1 + rate, years) - 1);
+
+            document.getElementById('calcMonthly').innerText = isNaN(monthly) ? "$0 / mo" : `$${Math.round(monthly).toLocaleString()} / mo`;
+        }
+
+        // FORM SUBMISSION HANDLER
+        function handleFormSubmit(e, type) {
+            e.preventDefault();
+            leadCount++;
+            document.getElementById('dashTotalLeads').innerText = leadCount;
+            alert(`Thank you! Your ${type} has been sent to dothashnetwork1@gmail.com. Our team will contact you shortly.`);
+            e.target.reset();
+            closeModal();
+        }
+
+        // TOGGLE DASHBOARD / WEBSITE VIEWS
+        function toggleDashboard() {
+            const siteView = document.getElementById('website-view');
+            const dashView = document.getElementById('dashboard-view');
+
+            siteView.classList.toggle('hidden');
+            dashView.classList.toggle('hidden');
+
+            if (!dashView.classList.contains('hidden')) {
+                renderDashboardTable();
+                initChart();
+            }
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // DASHBOARD TABLE RENDER
+        function renderDashboardTable() {
+            const tbody = document.getElementById('dashTableBody');
+            document.getElementById('dashTotalProperties').innerText = properties.length;
+
+            tbody.innerHTML = properties.map(p => `
+                <tr>
+                    <td class="p-3 font-semibold text-navy-900">${p.title}</td>
+                    <td class="p-3"><span class="px-2 py-0.5 rounded text-[10px] bg-slate-100 font-bold">${p.type}</span></td>
+                    <td class="p-3">${p.location}</td>
+                    <td class="p-3 font-bold">$${p.price.toLocaleString()}</td>
+                    <td class="p-3 text-right">
+                        <button onclick="deleteProperty(${p.id})" class="text-red-500 hover:text-red-700 font-bold text-xs">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function deleteProperty(id) {
+            properties = properties.filter(p => p.id !== id);
+            renderPropertyListings(properties);
+            renderDashboardTable();
+        }
+
+        function openAddModal() {
+            const title = prompt("Enter Property Title:");
+            if (!title) return;
+            const price = parseInt(prompt("Enter Price ($):") || "100000");
+            const location = prompt("Enter Location (City, State):") || "Georgia, USA";
+            const type = prompt("Enter Type (Land/Residential/Commercial):") || "Land";
+
+            const newProp = {
+                id: Date.now(),
+                title: title,
+                type: type,
+                location: location,
+                price: price,
+                size: "5 Acres",
+                image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
+                desc: "Newly listed property managed by Dot Hash Network."
+            };
+
+            properties.unshift(newProp);
+            renderPropertyListings(properties);
+            renderDashboardTable();
+        }
+
+        // CHART.JS INITIALIZATION
+        let chartInstance = null;
+        function initChart() {
+            if (chartInstance) return;
+            const ctx = document.getElementById('analyticsChart').getContext('2d');
+            chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Inquiries',
+                        data: [4, 8, 12, 9, 15, 22],
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        // INITIAL LOAD
+        renderPropertyListings(properties);
+        updateCalculator();
+    </script>
+</body>
+</html>
